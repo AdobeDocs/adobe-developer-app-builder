@@ -12,7 +12,7 @@ title: 'Lesson 4: React Spectrum in App Builder'
 To initialize an App Builder app, let’s use the init command from the [CLI](https://github.com/adobe/aio-cli).
 
 ```bash
-aio app init my-app --no-extensions
+aio app init my-app --standalone-app
 ```
 
 You’re presented with a few options what you want your app to include (serverless actions, web UI assets, CI/CD pipeline). 
