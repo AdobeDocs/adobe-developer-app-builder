@@ -11,7 +11,7 @@ title: Well done
 
 # Well done
 
-Congratulations! You have successfully completed the codelab.
+Congratulations! You have successfully completed the Code Lab.
 
 ## Achievements
 

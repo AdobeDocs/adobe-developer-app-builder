@@ -10,7 +10,7 @@ keywords:
 
 # Getting Started
 
-In this video, we will cover how to setup your project in the Adobe Developer Console, init the code, review the project structure, test, and play with the working code.
+In this video, we will cover how to set up your project in the Adobe Developer Console, initialize the code, review the project structure, test, and play with the working code.
 
 <Media slots="video"/>
 

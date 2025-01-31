@@ -11,10 +11,9 @@ import Requirements from '../transclusions/_requirements.md'
 
 <Requirements/>
 
-## Codelab environment
+## Code Lab Environment
 
 You should also have a GitHub account: 
 
 * [Creating your GitHub account](https://help.github.com/en/github/getting-started-with-github/signing-up-for-a-new-github-account)
-* [Installing a git client](https://git-scm.com/downloads)
-
+* [Installing a Git client](https://git-scm.com/downloads)

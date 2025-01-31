@@ -11,16 +11,18 @@ title: 'Lesson 3: Fire an Event'
 
 # Lesson 3: Fire an Event
 
-## Fire Event
-Once you set up the app and register the event provider, now you can make user click `invoke` button as fire event, this lesson will walk through the code in `publish-event` template, test it on the UI with "invoke" button and see the success response (in this lession using webhook)
+Once the app is set up and the event provider registered, we can make a user click of the `invoke` button a fire event This lesson will walk through the code in `publish-event` template, test it on the UI using the "invoke" button, and see the success response, in this lession using webhook.
 
-You can choose to use this template code at `/actions/publish-events/index.js` or create your own code.
-Within the newly created app, Firstly, set up `package.json` with the lists of dependencies, version, etc. 
-Then `manifest.yml` lists the declaration of serverless actions including name, source files, runtime kind, default params, annotations, and so on. In this lesson, we will choose to use this template to modify the code to our need.
+You may use the template code at `/actions/publish-events/index.js`, or create your own.
 
-Note: here put in the `providerId`,`apiKey` and `eventCode`from lesson 2 in the `manifest.yml` and `orgId`,`accessToken`can be passed through `headers`
+Within the newly created app, first set up `package.json` with the lists of dependencies, version, etc. 
 
-Below is a sample `app.config.yaml` 
+Then `manifest.yml` lists the declaration of serverless actions including names, source files, runtime kind, default params, annotations, and so on. For this lesson, we will use this template and modify the code as needed.
+
+Put the `providerId`,`apiKey` and `eventCode` saved from Lesson 2 in the `manifest.yml`; `orgId` and `accessToken`can be passed through `headers`.
+
+Here is a sample `app.config.yaml`: 
+
 ```javascript
 application:
   actions: actions
@@ -52,12 +54,12 @@ application:
           final: true
 ```
 
-Now let's start to take a deeper look the template code: 
+In the template code: 
 
 * Source code is at `actions/publish-events/index.js`
-* It is a [web action](/runtime/docs/guides/using/creating_actions/#invoking-web-actions)
-* The action will be run in the `nodejs:18` [runtime container on I/O Runtime](/runtime/docs/guides/reference/runtimes)
-* It has some [default params](/runtime/docs/guides/using/creating_actions/#working-with-parameters) such as `LOG_LEVEL`, you can pass in your `params` like `apiKey`, `provideId` and `eventCode`from `manifest.yml`
+* It is a [web action](../../guides/runtime_guides/creating_actions.md#invoking-web-actions)
+* The action will be run in the `nodejs:18` [runtime container on I/O Runtime](../../guides/runtime_guides/reference_docs/runtimes.md#nodejs-v18142)
+* It has some [default parameters](../../guides/runtime_guides/creating_actions.md#working-with-parameters) such as `LOG_LEVEL`, and those you can pass in your `params` like `apiKey`, `provideId` and `eventCode`from `manifest.yml`
 
 ```javascript
 const { Core, Events } = require('@adobe/aio-sdk')
@@ -89,7 +91,7 @@ async function main (params) {
     // extract the user Bearer token from the Authorization header
     const token = getBearerToken(params)
 
-    
+
     // initialize the client
     const orgId = params.__ow_headers['x-gw-ims-org-id']
     const eventsClient = await Events.init(orgId, params.apiKey, token)
@@ -133,31 +135,33 @@ function createCloudEvent(providerId, eventCode, payload) {
   return cloudevent;
 }
 exports.main = main
-
 ```
-What happens here is that the action exposes a `main` function, which accepts a list of params from the client. It checks the required params for using the `cloudevents-sdk`. 
 
-You can run the App Builder app locally by execute the below command with AIO CLI:
+The action here exposes a `main` function, which accepts a list of parameters from the client. It checks the required parameters for using the `cloudevents-sdk`. 
+
+You can run the App Builder app locally by executing this command with AIO CLI:
+
 ```bash
 aio app run
 ```
-This command will deploy the `publish-event` action into I/O Runtime, and spins up a local instance for the UI. When the app is up and running, it can be seen at `https://localhost:9080`. You should be able to see the UI of the app and it is also possible to access the app from ExC Shell: `https://experience.adobe.com/?devMode=true#/apps/?localDevUrl=https://localhost:9080`. You might be asked to log in using your Adobe ID.  When the website is opened, the UI is almost similar to what you see when deployed on localhost, except the ExC Shell on top of the UI.
 
-Once you are satisfied with your app, you can deploy your app by run below command:
+This command will deploy the `publish-event` action into I/O Runtime and spin up a local instance for the UI. When the app is up and running, it can be seen at `https://localhost:9080`. You should be able to see the UI of the app and also access it from ExC Shell: `https://experience.adobe.com/?devMode=true#/apps/?localDevUrl=https://localhost:9080`. You may be asked to log in using your Adobe ID.  When the website is opened, the UI is similar to what you see when deployed on localhost, except for the ExC Shell on top of the UI.
+
+Once you are satisfied with your app, you can deploy it with this command:
+
 ```bash
 aio app deploy
 ```
-This command will deploy the app to your namespace, you will get the URL like 
+
+This command will deploy the app to your namespace, and you will get a URL like this one:
 `https://<Runtime-namespace>.adobeio-static.net/<project-name>-0.0.1/index.html`
-and you will see your deployed link in the terminal
+You will see your deployed link in the terminal.
 
-Next, let's see how the web UI communicates with the backend. In `web-src/src/components` we already provide a template of UI.
-After you select the actions to `publish-events` and then click the `invoke` button, it will invoke the action. In the action, it will send out the event. When you invoke, you could also add actual params, in this example, we add `{"payload": "you got a like"}`, in the webhook result, you will see the payload showed in `{"data": "you got a like"}`.
+Next, let's see how the web UI communicates with the back end. In `web-src/src/components` we already provided a template of the UI.
+After you select the actions to `publish-events`, clicking the `invoke` button will invoke the action. The action will send out the event. When you invoke, you could also add actual parameters. In this example we added `{"payload": "you got a like"}` In the webhook result, you will see the payload: `{"data": "you got a like"}`.
 
-Note: Here I use the webhook tool [here](https://io-webhook.herokuapp.com/) to generate a webhook link and put this webhook to the console integration. You can use other webhook tool as discussed in lession 4. 
+> Note: This example uses [this webhook tool](https://io-webhook.herokuapp.com/) to generate a webhook link and put the webhook to the console integration. You can use other tools, as discussed in the next lesson. 
 
 ![templateui](assets/template-ui.png)
 
 ![eventresult](assets/event-webhook-result.png)
-
-

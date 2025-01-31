@@ -29,26 +29,25 @@ If you click on the Deploy step to open the logs, you'll see that your App Build
 
 ## Run tests on pull request
 
-The GitHub action defined in `pr_test.yml` will run `aio app test` anytime a pull request is submitted to your project. 
-By default, it will only run the tests for the Runtime actions. If all the checks are passing and the pull request is merged, the above workflow will run and deploy the App Builder App on the stage environment. 
+The GitHub action defined in `pr_test.yml` will run `aio app test` any time a pull request is submitted to your project. 
+By default, it will only run tests for the Runtime actions. If all the checks pass and the pull request is merged, the above workflow will run and deploy the App Builder App on the Stage environment. 
 
 ![tests](assets/tests.png)
 
 ## Continuous deployment
 
-To deploy your App Builder App on the production environment, you'll have to perform a GitHub release in your project repository since the GitHub action relies on the `release` event.
+To deploy your App Builder App on the Production environment, perform a GitHub release in your project repository, since the GitHub action relies on the `release` event.
 
-For convenience, we'll go to `https://github.com/<org>/<project_name>/releases/new` to perform a release. Fill out the release version and optionally, you can add a release title and description then hit Publish release. 
+For convenience, we'll go to `https://github.com/<org>/<project_name>/releases/new` to perform a release. Fill out the release version, optionally add a release title and description, then click Publish Release. 
 
 ![release](assets/release.png)     
 
-Finally, the deploy GitHub action will run and deploy the App Builder App on the production environment using the production GitHub secrets.
+Finally, the Deploy GitHub action will run and deploy the App Builder App on the Production environment using the Production GitHub secrets:
 
 ![production](assets/production.png)
 
 ## Debugging jobs
 
-GitHub Actions provide cloud based CI/CD features and therefore you can't debug jobs locally.
-Fortunately, GitHub provides tools to help you debug failing jobs.
+GitHub Actions provide cloud based CI/CD features; therefore you can't debug jobs locally. GitHub provides tools to help you debug failing jobs.
 
-Please find more information on how to view run logs, enable verbose logs and more on the [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs).   
+Please find more information on how to view run logs, enable verbose logs, and more in the [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs).   

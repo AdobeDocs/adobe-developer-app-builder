@@ -7,97 +7,66 @@ keywords:
 title: App Builder Sample Apps  
 ---
 
-# Sample Apps 
+# Sample Apps
 
-Below are complete sample applications built using App Builder.
+These are complete sample applications built using App Builder. See below for a [collection of code snippets](#code-snippets) for common operations.
 
 ## Overview
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Live demo: Adobe Stock Image Search 
+### Demo: Adobe Stock image search
 
-[Demo](demo.md) 
-
-This is an App Builder Demo App which enables searching Adobe Stock images.
-
-
+[Demo](demo.md) is an App Builder demo app that enables searching Adobe Stock images.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Customer Profiles Dashboard
+### Customer profiles dashboard
 
-<https://github.com/AdobeDocs/adobeio-samples-customers-dashboard>
-
-This App Builder app is a complete solution of the codelab Build an App Builder App for Customer Profiles using Adobe Campaign Standard API. It lists customer profiles from Adobe Campaign Standard and allows sending marketing campaign emails with personalized promo code.
- 
+[Customer profiles dashboard](https://github.com/AdobeDocs/adobeio-samples-customers-dashboard) is a complete solution of the Code Lab [Build a Customer Profiles Dashboard with App Builder](../customer-dashboard/index.md) using Adobe Campaign Standard API. It lists customer profiles from Adobe Campaign Standard and allows sending marketing campaign emails with personalized promo codes.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Barcode Generator
+### Barcode generator
 
-<https://github.com/AdobeDocs/adobeio-samples-barcode-generator>
-
-This App Builder app is a complete solution of the codelab App Builder Headless App. The app will generate a code128 barcode based on the user provided value. It’s a simple app that can be used and adapted for different use cases.
-
+[Barcode generator](https://github.com/AdobeDocs/adobeio-samples-barcode-generator) is a complete solution of the Code Lab App Builder [Barcode](../barcode-reader/index.md) headless app. The app will generate a code128 barcode based on the user-provided value. It’s a simple app that can be used and adapted for different use cases.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Throttled Queue Processing
+### Throttled queue processing
 
-<https://github.com/AdobeDocs/adobeio-samples-throttled-processing> 
-
-This headless application manages the processing of a queue of tasks which requires communication with a throttled external system. In particular, it retrieves short URLs from bit.ly for which request threshold depends on the pricing plans.
-
+[Throttled queue processing](https://github.com/AdobeDocs/adobeio-samples-throttled-processing) is a headless application that manages processing of a queue of tasks that require communication with a throttled external system. It retrieves short URLs from bit.ly for which the request threshold depends on the pricing plan.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Custom Assets Compute Worker for AEM using Photoshop API 
+### Custom Assets compute worker for AEM using Photoshop API
 
-<https://github.com/AdobeDocs/adobeio-samples-assets-compute-photoshop>
-
-This is a sample app that implements a custom Assets Compute Worker for AEM to generate cutout and automatically toned renditions by leveraging Photoshop APIs.
-
+[Custom Assets compute worker for AEM](https://github.com/AdobeDocs/adobeio-samples-assets-compute-photoshop) is a sample app that implements a custom Assets compute worker for AEM to generate cutout and automatically toned renditions by leveraging Photoshop APIs.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Todo App with React Spectrum
+### To-Do app with React Spectrum
 
-<https://github.com/AdobeDocs/adobeio-samples-todoapp>
- 
-This App Builder app is a complete solution of the codelab Bulding an App Builder Todo App with aio-lib-state and React Spectrum which shows you how to use aio-lib-state as part of Runtime actions and how to bind React Spectrum components to Runtime actions.
-
+This is a complete solution of the Code Lab [Building an App Builder To-Do App with aio-lib-state and React Spectrum](https://github.com/AdobeDocs/adobeio-samples-todoapp), which shows you how to use aio-lib-state as part of Runtime actions and how to bind React Spectrum components to Runtime actions.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Journal Browser using I/O Events Library
+### Journal browser using I/O Events library
 
-<https://github.com/AdobeDocs/adobeio-samples-events-journal-browser> 
-
-This is an App Builder App which enables users to browse through events from Journaling using a simple interface.
+[Journal browser using I/O Events library](https://github.com/AdobeDocs/adobeio-samples-events-journal-browser) is an App Builder App that lets users browse through events from Journaling using a simple interface.
 
 ### Adobe I/O Events - Azure Service Bus connector
 
-<https://github.com/AdobeDocs/adobeio-samples-events-azureservicebus-connector> 
-
-This is a sample I/O Events consumer, built using App Builder, that forwards all incoming events to Azure Service Bus. This sample consumer application can be used as a reference to connect Adobe I/O Events with enterprise's Azure Service Bus.
+[Azure Service Bus connector](https://github.com/AdobeDocs/adobeio-samples-events-azureservicebus-connector) is a sample I/O Events consumer, built using App Builder, that forwards all incoming events to Azure Service Bus. This sample consumer application can be used as a reference to connect Adobe I/O Events with an enterprise's Azure Service Bus.
 
 <DiscoverBlock slots="heading, link, text" width="100%" />
 
-### Adobe I/O Events - Azure Service Bus connector
+## Code snippets
 
-<https://github.com/AdobeDocs/adobeio-samples-events-azureservicebus-connector> 
-
-This is a sample I/O Events consumer, built using App Builder, that forwards all incoming events to Azure Service Bus. This sample consumer application can be used as a reference to connect Adobe I/O Events with enterprise's Azure Service Bus.
-
-
-## Code Snippets
-
-We also provide a collection of basic code snippets to get you started: 
+Here is a collection of basic code snippets to get you started: 
 
 * [Caching HTTP responses](code_snippets/index.md)
 * [App Builder Files SDK](code_snippets/files.md)
 * [App Builder State SDK](code_snippets/state.md)
 * [I/O Events handler](code_snippets/events.md)
 * [Real-time data from Adobe Analytics API 1.4](code_snippets/analytics.md)
-

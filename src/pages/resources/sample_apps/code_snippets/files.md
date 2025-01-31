@@ -9,7 +9,7 @@ title: App Builder Code Snippets - App Builder Files SDK
 
 # App Builder Files SDK
 
-## Return a list of files stored with the Files SDK
+## Demonstrates how to return a list of files stored with the Files SDK
 
 ```javascript
 /**
@@ -250,5 +250,3 @@ async function main (params) {
 
 exports.main = main
 ```
-
-

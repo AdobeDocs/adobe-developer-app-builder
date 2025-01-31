@@ -16,6 +16,8 @@ Many rendition requirements such as converting to formats and resizing images ar
 
 Support for Photoshop APIs makes this even easier. The Photoshop magics are now available on the cloud, at scale, to automate repetitive design tasks and keep your team doing what they do best.
 
+With the support of Photoshop APIs, this becomes even easier. The Photoshop magics are now available on the cloud, at scale. It helps to automate repetitive design tasks and keep your team doing what they do best.
+
 This Code Lab will show you how to build an AEM Assets Compute Worker using App Builder and Photoshop APIs to generate custom image renditions.
 
-For your convenience, we have provided a sample project as the result of this Code Lab at [AdobeDocs/adobeio-samples-assets-compute-photoshop](https://github.com/AdobeDocs/adobeio-samples-assets-compute-photoshop).  
+You can review a sample project as the result of this Code Lab at [AdobeDocs/adobeio-samples-assets-compute-photoshop](https://github.com/AdobeDocs/adobeio-samples-assets-compute-photoshop).  

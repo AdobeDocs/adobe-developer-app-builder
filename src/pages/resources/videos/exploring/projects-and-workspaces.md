@@ -10,7 +10,7 @@ keywords:
 
 # Exploring App Builder - Projects and Workspaces
 
-The App Builder team shared a short presentation about projects and workspaces and how to use customizations to help your team collaborate on building App Builder Applications.
+The App Builder team shares a short presentation about projects and workspaces, and how to use customizations to help your team collaborate on building App Builder Applications.
 
 <Media slots="video"/>
 

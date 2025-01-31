@@ -11,12 +11,12 @@ title: 'Lesson 1: Bootstrap a Headless App'
 
 # Lesson 1: Bootstrap a Headless App
 
-First, you need a new headless app created with AIO CLI. Since this app needs only a simple action to test the cron job,  all other components are deselected.
-Follow [Creating your First App Builder Application](../../getting_started/first_app.md) to get started.
+First, you need a new headless app created with AIO CLI. This app needs only a simple action to test the cron job, so all other components have been deselected.
+Follow this, from [Creating your First App Builder Application](../../get_started/app_builder_get_started/first_app.md)
 
 ![app-init](assets/app-init.png)
 
-Now go to the action code at `actions/generic/index.js` to simplify what it does: make it print the current execution time to logs and return it in the result.
+Now edit the action code at `actions/generic/index.js` to simplify it. We will make it print the current execution time to logs, and return it in the result:
 
 ```javascript
 const { Core } = require('@adobe/aio-sdk')
@@ -42,7 +42,7 @@ async function main (params) {
 exports.main = main
 ```
 
-Because the action is invoked only by the internal alarms, it does not need to be exposed as a web action, which would prevent access to the action by unprivileged users. Your manifest file should look like this:
+Because the action is invoked only by internal alarms, it does not need to be exposed as a web action. This prevents the action from being accessed by unprivileged users. Your manifest file should look like this:
 
 ```yaml
 application:
@@ -59,7 +59,6 @@ application:
             runtime: 'nodejs:14'
 ```
 
-To test the action, you could execute `aio app deploy` in the VSCode terminal. Once the deployment is finished, run `aio rt action invoke your-app-name/generic`, and then verify its result and logs using `aio rt activation get ID` and `aio rt activation logs ID` (`ID` is available in the output of the invoke command earlier). This is an extract of result from the activation information:
+To test the action, you could execute `aio app deploy` in the VSCode terminal. Once the deployment is finished, run `aio rt action invoke your-app-name/generic` and verify its result and logs using `aio rt activation get ID` and `aio rt activation logs ID` (`ID` is available in the output of the invoke command earlier). This is an extract of the result from the activation information:
 
 ![activation-get](assets/activation-get.png)
-

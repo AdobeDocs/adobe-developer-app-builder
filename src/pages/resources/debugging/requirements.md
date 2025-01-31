@@ -13,9 +13,6 @@ import Requirements from '../transclusions/_requirements.md'
 
 <Requirements/>
 
-## Codelab environment
+## Code Lab Environment
 
-The [Optional tools](../../getting_started/index.md#optional-tools) are required for this lab. Please make sure you have all of them installed.*
-
-
-
+The optional [Visual Studio Code](../../get_started/app_builder_get_started/set_up.md#optional-tool) IDE is required for this lab. Please make sure it is installed.

@@ -11,13 +11,13 @@ title: 'Lesson 1: Create an App Builder app from the Asset Compute template'
 
 # Lesson 1: Create an App Builder App from the Asset Compute Template
 
-To begin this Code Lab, you should have [a project already created from App Builder Template in Adobe Developer Console](../../getting_started/first_app.md#2-creating-a-new-project-on-developer-console). Please add the `Asset Compute` and `Adobe Photoshop APIs (Trial)` services to the workspace  you are using for the Code Lab.
+To begin this Code Lab, you should have [a project already created from App Builder Template in Adobe Developer Console](../../get_started/app_builder_get_started/first_app.md#2-create-a-new-project-on-developer-console). Please add the `Asset Compute` and `Adobe Photoshop APIs (Trial)` services to the workspace that you are using for the Code Lab.
 
 ![Console Workspace](assets/console-workspace.png)
 
 Make sure to have the Adobe I/O CLI installed locally. In your terminal, execute the command `aio app init <app-name>`.
 
-If you have not logged in already, this command prompts a browser to ask you to sign into the Adobe Developer Console with your Adobe ID. See [here](../../getting_started/first_app.md#3-signing-in-from-cli) for more information on signing in from the cli.
+If you have not logged in already, this command prompts a browser asking you to sign into the Adobe Developer Console with your Adobe ID. See [here](../../get_started/app_builder_get_started/first_app.md#3-sign-in-from-the-CLI) for more information on signing in from the CLI.
 
 After logging in, follow the prompts in the CLI and select the Organization, Project, and Workspace to use for the application. Choose the project and workspace you created when you set up your environment. When prompted `Which extension point(s) do you wish to implement? `, make sure to select `DX Asset Compute Worker`:
 

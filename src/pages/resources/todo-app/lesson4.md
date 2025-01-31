@@ -9,9 +9,9 @@ title: 'Lesson 4: Setup the Todo component'
 
 # Lesson 4: Setup the Todo component
 
-In this lesson, we'll create a Todo React component which is only composed of 2 React Spectrum components: [Checkbox](https://react-spectrum.adobe.com/react-spectrum/Checkbox.html) and [TextField](https://react-spectrum.adobe.com/react-spectrum/TextField.html).
+In this lesson, we'll create a Todo React component composed of only two React Spectrum components: [Checkbox](https://react-spectrum.adobe.com/react-spectrum/Checkbox.html) and [TextField](https://react-spectrum.adobe.com/react-spectrum/TextField.html).
 
-Similarly to [lesson 3](lesson3.md), we'll create the React component file under `web-src/src/components/` and name it `Todo.js`.
+In a way similar to [lesson 3](lesson3.md), we'll create the React component file under `web-src/src/components/` and name it `Todo.js`.
 
 ## Import React Spectrum components
 
@@ -23,25 +23,25 @@ This component will make use of several React Spectrum components:
 
 ```javascript
 import { Flex, Checkbox, TextField } from '@adobe/react-spectrum';
-``` 
+```
 
 ## Component properties
 
-The component will accept 3 properties:
+The component will accept three properties:
 
-* `name` to identify the todo list name 
-* `todo` which holds the todo id, text value and checked status.
+* `name` to identify the to-do list name 
+* `todo` which holds the to-do ID, text value and checked status.
 * `onUpdate` which is the callback function invoked whenever the todo item is updated.
 
 ```javascript
 function Todo({ name, todo, onUpdate }) {
   // ...
 }
-```   
+```
 
-## Updating a todo item
+## Updating a to-do item
 
-Again, we're going to use the [State hook](https://reactjs.org/docs/hooks-state.html) `useState` to declare 2 state variables and bind one to the Checkbox and the other one to the Textfield.
+Again, we're going to use the [State hook](https://reactjs.org/docs/hooks-state.html) `useState` to declare two state variables, bind one to the Checkbox and the other to the Textfield:
 
 ```javascript
 const [value, setValue] = useState(todo.value);
@@ -50,9 +50,7 @@ const [isDone, setIsDone] = useState(todo.done);
 
 Here we use the `todo` properties `value` and `done` to define the default state values.
 
-Next we'll bind the `value` state to the TextField. 
-We'll also update the `value` state with `setValue()` and invoke the callback function `onUpdate` on every input change.
-`onUpdate` takes 2 parameters: the todo list name and the todo object.
+Next we'll bind the `value` state to the TextField, update the `value` state with `setValue()`, and invoke the callback function `onUpdate` on every input change. `onUpdate` takes 2 parameters: the to-do list name and the todo object.
 
 ```jsx
 <TextField
@@ -63,14 +61,14 @@ We'll also update the `value` state with `setValue()` and invoke the callback fu
     onChange={async (value) => {
       todo.value = value;
       setValue(value);
-    
+
       onUpdate && (await onUpdate(name, todo));
     }}
     isQuiet
 />
-```   
+```
 
-We'll do exactly the same for `Checkbox`.
+We'll do the same for `Checkbox`:
 
 ```jsx
 <Checkbox
@@ -79,19 +77,18 @@ We'll do exactly the same for `Checkbox`.
     onChange={async (value) => {
       todo.done = value;
       setIsDone(value);
-    
+
       onUpdate && (await onUpdate(name, todo));
     }}
     isEmphasized
     value={value}
 />
-``` 
+```
 
 ## Full component
 
-Finally, we're using the Flex layout to align the Checkbox with the TextField and we're done with our Todo component.
+Finally, we use the Flex layout to align the Checkbox with the TextField and finish our To-do component.
 
 See the full component code [here](https://github.com/AdobeDocs/adobeio-samples-todoapp/blob/master/web-src/src/components/Todo.js).
 
 ![Todo](assets/todo.png)
-

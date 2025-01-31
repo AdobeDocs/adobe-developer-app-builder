@@ -9,25 +9,26 @@ contributors:
 title: 'Lesson 1: Step by Step Guide'
 ---
 
-# Lesson 1: Step by Step Guide
+# Lesson 1: Initialize an App Builder App Using a Template
 
-## Initialize an App Builder app using template 
-If you don't have an App Builder app, please follow [Create a New App Builder App from Template](../event-driven/lesson1.md) to create one, make sure you have `publish-event`in the template and add `I/O management API`in console. After done, and run `aio app deploy` you should have seen this 
+If you don't have an App Builder app, please follow [Create a New App Builder App from Template](../event-driven/lesson1.md) to create one. Make sure you have `publish-event`in the template, and add `I/O management API`in the console. Then run `aio app deploy`, and you should see this: 
 ![publishevent](assets/publishevent-1.png)
 
-and here is the project I set up at adobe developer console 
+Here is the project set up at the Adobe Developer console:
 ![consoleproject](assets/console-project-2.png)
 
+## Event registration
 
-## Event Registration
-
-- Follow [Register the App as Event Provider](../event-driven/lesson2.md) to register the event provider, in my case, while at the step:
-```
-aio event registration create 
-``` 
-It will show you a sample of JSON format, make sure you select `webhook` in my case, here is an example of .json file
-```
-{
+- Follow [Register the App as Event Provider](../event-driven/lesson2.md) to register the event provider:
+  
+  ```
+  aio event registration create 
+  ```
+  
+  This will return a sample in JSON format. Make sure you select `webhook`. Here is an example of a .json file:
+  
+  ```
+  {
     "name": "event-runtime-integration",
     "description": "test event runtime",
     "delivery_type": "WEBHOOK",
@@ -38,16 +39,17 @@ It will show you a sample of JSON format, make sure you select `webhook` in my c
         "event_code": "eventrt"
         }
     ]
-}
-```
+  }
+  ```
 
-- After finish the steps above, you should be able to see in your terminal that you successfully create register the event, and you will also see it at adobe developer console under the left bottom corner `event` your registration provider `eventrt` will show up there
-![console-event](assets/console-event-3.png)
+- After finishing the steps above, your terminal should show that you successfully created and registered the event. On Adobe Developer console, you will see your registration provider `eventrt` under the left bottom corner `event`:![console-event](assets/console-event-3.png)
 
-## Create Event Consumer 
-We will use the `generic` App Builder template to modify the code to create event consumer, I will name the action to `consume-event`, after deploy the event you will be able to set up an event registration runtime actions you deployed.
+## Create event consumer
 
-Note: here is one simple sample code that you could refer to test the webhook feature: 
+We will use the `generic` App Builder template to modify the code that creates an event consumer, naming the action `consume-event`.  After deploying the event, you will be able to set up the event registration runtime actions you deployed.
+
+Here is some sample code that shows how to test the webhook feature: 
+
 ```
 function main(params) {
   console.log('user action is processing event ' + params.event);
@@ -63,7 +65,8 @@ function main(params) {
     };
   }
 ```
-or you could use below one to create webhook send to slack 
+
+Alternatively, you could use this one to create a webhook to send to Slack:
 
 ```
 /* this is a sample action sent a message to slack */
@@ -74,7 +77,7 @@ var slackWebhook = "Your webhook";
 var slackChannel = "your channel";
 
 async function main (params) {
-  
+
   /* print event detail */
   console.log('in main + event detail: ', params.event);
 
@@ -146,32 +149,31 @@ async function main (params) {
 
 exports.main = main
 ```
-Please note that: An action used as event consumer does not need to be `web: yes`, and doesn't need `require-adobe-auth: true` in the manifest.yml file, please modify accordingly to ensure your app security. 
 
-## Event Runtime Integration 
+> Note: An action used as event consumer does not need to be `web: yes`, and doesn't need `require-adobe-auth: true` in the manifest.yml file. Please make the necessary modifications to ensure your app's security. 
 
-- With all above setup, now you get your `providerId`, `eventCode`, you can go back to your App Builder App trying to invoke a custom event like below: 
-![invoke-event](assets/event-invoke-4.png)
+## Event runtime integration
 
-- You should see this runtime action created in the `user defined actions` 
-![user-define-action](assets/user-define-action-5.png)
+- With all the above set up, get your `providerId` and `eventCode` and return to your App Builder App to invoke a custom event like this: 
+  ![invoke-event](assets/event-invoke-4.png)
 
-- User now adds the event api to the project to setup the event registration
-![add-event](assets/add-event-6.png)
+- You should see this runtime action created in the `user defined actions`:
+  ![user-define-action](assets/user-define-action-5.png)
 
-- Adding from our custom event provider we just registered `eventruntime` (you should be able to see your register event in this list)
-![add-event](assets/add-event-7.png)
+- Now add the event API to the project to set up the event registration:
+  ![add-event](assets/add-event-6.png)
 
-- Subscribing to the "eventrt" event type
-![add-event](assets/add-event-8.png)
+- We registered `eventruntime` as our custom event provider, and you should see your registered event in this list:
+  ![add-event](assets/add-event-7.png)
 
-- Generate the JWT service account credentials key pair
-![add-event](assets/add-event-9.png)
+- Subscribe to the "eventrt" event type:
+  ![add-event](assets/add-event-8.png)
 
-- On the registration details page provide name and select the runtime user action created to setup event registration, select the user action from the dropdown of Runtime Actions, as we create the `consume-event`and deployed previously, so we will choose this one, then click `Save configured events`. This will create an event registration with an event handler webhook pointing to your runtime action.
-![add-event](assets/add-event-10-3.png)
+- Generate the JWT service account credentials key pair:
+  ![add-event](assets/add-event-9.png)
 
-- If user goes to his aio-cli and do "aio runtime list", he can see the below entities created as part of the new flow of event registration
-![add-event](assets/add-event-12.png)
+- On the registration details page, provide the name and select the runtime user action created to set up event registration. Then select the user action from the dropdown of Runtime Actions. Since we previously created and deployed the `consume-event`, so choose it and click `Save configured events`. This creates an event registration with an event handler webhook pointing to your runtime action.
+  ![add-event](assets/add-event-10-3.png)
 
-
+- If user enters `aio runtime list` to his aio cli it will show these entities created as part of the new flow of event registration:
+  ![add-event](assets/add-event-12.png)

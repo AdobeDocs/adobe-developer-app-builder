@@ -10,11 +10,10 @@ description: Introduction to Spectrum to build an App Builder App UI.
 
 # Spectrum Introduction
 
-This codelab is an introduction to: 
+This Code Lab is an introduction to: 
 
 * Adobe's Spectrum design system
 * Spectrum CSS 
 * React Spectrum  
 
-At the end, we'll show you how to build and deploy a Spectrum Single Page Application using App Builder.
-
+At the end, we'll show you how to build and deploy a Spectrum Single-Page Application using App Builder.

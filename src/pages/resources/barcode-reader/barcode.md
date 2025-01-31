@@ -9,7 +9,7 @@ title: 'Lesson 2: Writing a Serverless Action'
 
 # Lesson 2: Writing a Serverless Action
 
-There are many npm packages available for displaying barcodea, but some don't play well in serverless environments. 
+There are many existing npm packages to display a barcode. Some don't play well in serverless environments. 
 For this Code Lab, we'll use [bwip-js](https://www.npmjs.com/package/bwip-js/) to render a code128 barcode. 
 
 ## Barcode action
@@ -24,7 +24,7 @@ Then import the dependency into your action:
 
 ```javascript
 const bwipjs = require('bwip-js');
-```  
+```
 
 Now we can use the library and generate a barcode buffer in the exported main function:  
 
@@ -36,10 +36,9 @@ const buffer = await bwipjs.toBuffer({
   height: 10,
   includetext: false,
 });
-``` 
+```
 
-Notice that we defined a `value` parameter to be passed to the barcode generator configuration. 
-This is the actual data the barcode will encode. 
+Notice that we defined a `value` parameter to be passed to the barcode generator configuration. This is the actual data that the barcode will be holding. 
 
 Then we can return the image representation of the buffer with: 
 
@@ -51,7 +50,7 @@ return {
 };
 ```
 
-Finally we can add checks to verify the requested `value` parameter, logging, and appropriate error handling to obtain this action: 
+Finally we can add checks to verify the requested `value` parameter, add logging and appropriate error handling to obtain this action: 
 
 ```javascript
 const { Core } = require('@adobe/aio-sdk');
@@ -77,7 +76,7 @@ async function main (params) {
       // return and log client errors
       return errorResponse(400, errorMessage, logger);
     }
-  
+
     const buffer = await bwipjs.toBuffer({
       bcid: 'code128',
       text: params.value,
@@ -86,7 +85,7 @@ async function main (params) {
       includetext: false,
       backgroundcolor: 'ffffff'
     });
-    
+
     return {
       headers: { 'Content-Type': 'image/png' },
       statusCode: 200,
@@ -101,22 +100,21 @@ async function main (params) {
 }
 
 exports.main = main;
+```
 
-``` 
-
-You can run the action locally using the CLI with: 
+You can run the action locally using the CLI using: 
 
 ```bash
 aio app run --local
 ```
- 
+
 This will: 
 
-1. Start a local [OpenWhisk](https://openwhisk.apache.org/) stack on Docker. 
-2. Package and deploy the Runtime action and its dependencies using a built-in webpack configuration.   
-3. Start a local development environment and provide the action url e.g. `http://localhost:3233/api/v1/web/guest/my-barcode-app-0.0.1/barcode` for testing and debugging. 
+1. Start a local [OpenWhisk](https://openwhisk.apache.org/) stack on Docker
+2. Package and deploy the Runtime action and its dependencies using a built-in webpack configuration 
+3. Start a local development environment and provide the action url e.g. `http://localhost:3233/api/v1/web/guest/my-barcode-app-0.0.1/barcode` for testing and debugging
 
-We'll discuss how to debug an App Builder app in a later Code Lab.
+Note that we'll cover how to do debug an App Builder app in a different Code Lab.
 
 Nowadd the value parameter, e.g. `?value=test`, to the url so the action will generate a barcode:
 
@@ -124,19 +122,15 @@ Nowadd the value parameter, e.g. `?value=test`, to the url so the action will ge
 
 ## Deploying
 
-You can deploy an App Builder Headless app with `aio app run` or `aio app deploy`. Either will deploy the actions to Adobe I/O Runtime.
-`aio app deploy` would have deployed the UI to a CDN, but since we don't have a UI that step is ignored. A separate Code Lab will show how to build an App Builder App with UI.
+You can deploy an App Builder Headless app with `aio app run` or `aio app deploy`. This will deploy the actions to Adobe I/O Runtime.
+`aio app deploy` would have deployed the UI to a CDN, but since we don't have a UI, that step is ignored. We'll have a separate Code Lab to guide you through building an App Builder App with UI.
 
-Make sure to set your Adobe I/O Runtime secrets (namespace and auth) in the `.env` file. 
-Turn off the built-in authentication by setting `require-adobe-auth: false` in the `manifest.yml`.    
-The security topic will be covered in a separate Code Lab.
+Be sure to set your Adobe I/O Runtime secrets (namespace and auth) in the `.env` file. Also, turn off the built-in authentication by setting `require-adobe-auth: false` in the `manifest.yml`.  The security topic will be covered in a dedicated Code Lab.
 
-Hitting deploy with the CLI will output the deployed action url:
+Entering deploy in the CLI will output the deployed action URL:
 
 ![deploy](assets/deploy.png)  
 
 **Congratulations! Your first App Builder Headless App is live.** 
 
-We can test whether the passed value is correctly rendered as a barcode using one of the many barcode readers available.
-
-
+How can we test that the passed value is actually rendered as a barcode? Fortunately, there are barcode readers that we can use in our tests.

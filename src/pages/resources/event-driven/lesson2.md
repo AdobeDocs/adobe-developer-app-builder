@@ -9,15 +9,13 @@ contributors:
 title: 'Lesson 2: Register the App as Event Provider'
 ---
 
-# Lesson 2: Register the App as Event Provider 
+# Lesson 2: Register the App as an Event Provider
 
-## Set up project and use CLI to register the app as event provider
-After set up your integration and collect the informations, you can start set up your event provider
+After you have set up your integration and collected the information, you can start to set up your event provider.
 
 ### Use CLI to create provider, eventmetadata and webhook registration
 
-Now we can start using CLI to create provider, eventmetadata and webhook registration.
-Make sure you install the Adobe I/O Events CLI Plugin, then run the below commands:
+Be sure you the Adobe I/O Events CLI Plugin is installed, and then run these commands:
 
 ```bash
 aio console org list
@@ -30,34 +28,38 @@ aio app use
 aio event => this will list all the commands for events.
 ```
 
-## Register the Event Provider
-After select the org, project and workspace, now we start to create registration 
+## Register the event provider
+
+After selecting the org, project and workspace, start to create the registration. 
+
 ```bash
 aio event provider create
 ```
-Fill in the information, and in the terminal you will see the provider id after successfully create provider,copy the `provider id` for next steps, now we can create eventmetadata:
+
+Fill in the requested information, and the terminal will show you the provider ID. Once you have successfully created the provider, copy the `provider id` for use in the next steps. Now we can create eventmetadata:
+
 ```bash
 aio event eventmetadata create <provider id>
 ```
-CLI will promote you to the questions asking you to input the `label` and `event code`for the eventmetadata.
-Now you can create registration by:
+
+CLI will prompt you to input the `label` and `event code`for the eventmetadata. 
+
+Now create the registration:
+
 ```bash
 aio event registration create 
 ```
-It will show you a sample of JSON format with the information to create a new event registration
-which you can copy, create your `.json` file and fill in details and use it. 
 
-Now with all that we have finished registering the event provider.
+The terminal will display a sample of JSON format with the information needed to create a new event registration. Copy it, create your own `.json` file, fill in the details and use it. 
 
-Note: another option to register an event provider is to run javascript code
-For your convenience,the source code is available [here](https://github.com/AdobeDocs/adobeio-samples-custom-events-registration)
-simply fill in the `.env` and run `npm start` 
+The event provider is now registered.
+
+Another option for registering an event provider is to run the javascript code available [here](https://github.com/AdobeDocs/adobeio-samples-custom-events-registration) - just fill in the `.env` and run `npm start` .
 
 ## Check your result on Console
-After using event CLI plugin to create an event provider, you will see event provider registrated in console 
-as well as your jouranling end point
+
+After using the events CLI plugin to create an event provider, you will see your event provider registrated in console and your journaling endpoint.
 
  ![event-provider](assets/event-provider.png)
 
-Note: You will need your `event provider id` and `event code` from this lesson to fire event in next steps:
-
+Note: You will need your `event provider id` and `event code` from this lesson to fire an event in the next lesson:

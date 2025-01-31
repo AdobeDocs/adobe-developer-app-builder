@@ -7,14 +7,14 @@ keywords:
 title: Well done
 ---
 
-# Well done
+# Well Done
 
-You have successfully setup a CI/CD workflow based on GitHub actions for your App Builder App.
+You have successfully set up a CI/CD workflow based on GitHub actions for your App Builder App.
 
 ## Achievements
 
 In this Code Lab, you’ve learned how to:
 
 * Setup App Builder GitHub Actions using `aio app init`
-* Define GitHub secrets for a stage and production environment
-* Trigger workflows for testing, stage, and production deployment 
+* Define GitHub secrets for Stage and Production environment
+* Trigger workflows for Test, Stage and Production deployments 

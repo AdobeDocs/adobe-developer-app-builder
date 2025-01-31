@@ -110,7 +110,7 @@ async function main (params) {
       // return and log client errors
       return errorResponse(400, errorMessage, logger)
     }
-    
+
     const state = await State.init()
     const val = await state.get(params.key)
     let result
@@ -148,5 +148,3 @@ async function main (params) {
 
 exports.main = main
 ```
-
-

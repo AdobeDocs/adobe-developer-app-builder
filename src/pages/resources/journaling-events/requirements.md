@@ -13,12 +13,13 @@ import Requirements from '../transclusions/_requirements.md'
 
 <Requirements/>
 
-## Codelab environment
+## Code Lab Environment
 
-In addition to above pre-requisites, you'll need to read through the below docs to get yourself familiar with custom event, how to scheduling cron jobs with alarms, Adobe I/O Events CLI Plugin, and journaling API: 
+In addition to above prerequisites, review the documents below to familiarize yourself with custom events, how to schedule cron jobs with alarms, Adobe I/O Events CLI Plugin, and Journaling API: 
 
-* [Getting Started with Adobe I/O Custom Events](../event-driven/index.md)
-* [Setting up Your Environment](../cron-jobs/index.md)
+* [Build an Event-Driven App Builder App Using Custom Events](../event-driven/index.md)
+* [Scheduling Cron Jobs with Alarms](../cron-jobs/index.md)
 * [Adobe I/O Events CLI Plugin](https://github.com/adobe/aio-cli-plugin-events)
-* [Journaling API](/events/docs/guides/api/journaling_api/)
+* [Journaling API](https://developer.adobe.com/events/docs/guides/api/journaling_api/)
+
 

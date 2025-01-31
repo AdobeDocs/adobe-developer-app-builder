@@ -17,5 +17,5 @@ Congratulations! You have successfully completed the Code Lab.
 
 You have learned: 
 
-* How to set up a headless App Builder app with a scheduler using triggers and rules
-* How to apply various types of alarm feed for different scheduling requirements
+* How to set up a headless App Builder app with a scheduler using triggers and rules.
+* How to apply various types of alarm feeds for different scheduling requirements.

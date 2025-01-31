@@ -6,25 +6,25 @@ keywords:
   - Developer Tooling
 contributors:
   - 'https://github.com/marcinczeczko'
-title: 'Lesson 3: Implement the Worker'
+title: 'Lesson 3: Implement the worker'
 ---
 
 # Lesson 3: Implement the Worker
 
-Create a new application using AIO CLI:
+Create a new application using the AIO CLI:
 
 ```bash
 $> aio app init my-custom-worker
 ```
 
-Application initialization will ask you:
-1. To select your Adobe Organization, followed by the console project selection. Pick the one you created in previous steps), then choose a project workspace where you have added the required services.
-1. To pick the components of the app. Select only **Actions: Deploy Runtime action**.
-2. The type of action. Choose only: **Adobe Asset Compute worker**.
-3. Finally, the name of the worker. Wait for `npm` to finish installing all the dependencies.
+In answer to the questions application initialization will ask you:
 
-Once it's done, edit the `.env` file and add the lines below. These are the environment variables the AIO CLI uses. In a
-production deployment, you would set them directly on your CI/CD pipelines as environment variables.
+1. Select your Adobe Organization, the console project selection you created in previous steps, and a project workspace where you added the required services.
+2. Pick the components of the app: select only **Actions: Deploy Runtime action**.
+3. On the type of action, choose only **Adobe Asset Compute worker**.
+4. Provide the name of the worker, and wait for the `npm` to finish installing all the dependencies.
+
+Once it's done, edit the  `.env` file and add the environment variables the AIO CLI uses. In a production deployment, you can set them directly on your CI/CD pipelines as environment variables:
 
 ```bash
 ## A path to the private.key you obtained from Adobe Console
@@ -46,9 +46,7 @@ IMGIX_SECURE_TOKEN=imgx-token
 IMGIX_DOMAIN=your-subdomain.imgix.net
 ```
 
-Edit the `ext.config.yaml` file inside the `src/dx-asset-compute-worker-1/` folder and add `inputs` object, as shown below. This file describes I/O Runtime action to be deployed.
-The `input` parameter sets the default parameters with values referenced to our environment variables. Those parameters are
-available in action JS as `param` object.
+Edit the `ext.config.yaml` file inside the `src/dx-asset-compute-worker-1/` folder and add the `inputs` object as shown below. This file describes the I/O Runtime action to be deployed. An `input` parameter sets the default parameters with values referenced to our environment variables. Those parameters are available in action JS as `param` object.
 
 ```yaml
 operations:
@@ -81,15 +79,14 @@ runtimeManifest:
             final: true
 ```
 
-We also need to add two dependencies to our project: the libraries we will use to simplify access to the Azure
-blob storage and to generated signed URL for imgIX.
+We will also need to add two dependencies to our project. These are the libraries we will use to simplify access to the Azure
+blob storage and to generate signed URL for imgIX.
 
 ```bash
 $> npm install @adobe/aio-lib-files imgix-core-js
 ```
 
-Finally, edit the worker source code located under `src/dx-asset-compute-worker-1/actions/<worker-name>/index.js` and replace it
-with this code
+Finally, edit the worker source code located under `src/dx-asset-compute-worker-1/actions/<worker-name>/index.js`, and replace it with:
 
 ```javascript
 'use strict';

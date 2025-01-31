@@ -7,7 +7,7 @@ keywords:
 title: 'Lesson 3: Custom CI/CD workflow'
 ---
 
-# Lesson 3: Custom CI/CD workflow 
+# Lesson 3: Custom CI/CD workflow
 
 ## Setting environment variables
 
@@ -37,9 +37,8 @@ application:
             annotations:
               require-adobe-auth: true
               final: true
-
 ```
- 
+
 2. Add the corresponding GitHub secrets for example `MY_ENV_VALUE_1_SECRET` and `MY_ENV_VALUE_2_SECRET`.
 3. Edit the stage and prod deploy workflows in your project under `.github/workflow/deploy_stage.yml` and `.github/workflow/deploy_prod.yml` to map the GitHub secrets to the environment values: 
 
@@ -55,7 +54,7 @@ application:
   env:
     MY_ENV_VALUE_1: ${{ secrets.MY_ENV_VALUE_1_SECRET }}
     MY_ENV_VALUE_2: ${{ secrets.MY_ENV_VALUE_2_SECRET }}
-``` 
+```
 
 So with that, you are setting environment variables in the GitHub CI/CD workflow that can be accessed inside your Adobe I/O Runtime function: 
 
@@ -66,13 +65,13 @@ async function main (params) {
   console.log(params.my_value_2);
   // ...
 }
-``` 
+```
 
 ## Custom use cases
 
 The default implementation of the CI/CD workflow for App Builder Applications relies on GitHub capabilities. 
 Unfortunately, GitHub actions are not supported on GitHub Enterprise yet.
- 
+
 In the case you can't use the GitHub Actions, we recommend implementing a custom CI/CD workflow with focus on two main aspects:
 
 * The [CLI](https://github.com/adobe/aio-cli) is the official tool to manage the App Builder Application development lifecycle from bootstrapping to deployment, and can be used within a CI/CD workflow for automation purpose.

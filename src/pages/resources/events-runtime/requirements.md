@@ -13,10 +13,9 @@ import Requirements from '../transclusions/_requirements.md'
 
 <Requirements/>
 
-### Codelab environment
+### Code Lab environment
 
-In addition to above pre-requisites, it will be helpful for you to read through the below docs learning about Adobe I/O events: 
+In addition to the prerequisites above, these documents are helpful when learning about Adobe I/O events: 
 
 * [Consume Events using Journaling API](../journaling-events/index.md)
-* [Building Event driven App Builder App Using Custom Events](../event-driven/index.md)
-
+* [Building Event-Driven App Builder Apps Using Custom Events](../event-driven/index.md)

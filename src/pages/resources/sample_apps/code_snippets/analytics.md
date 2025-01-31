@@ -7,9 +7,9 @@ keywords:
 title: App Builder Code Snippets - Real-time data from Adobe Analytics API 1.4  
 ---
 
-# Real-time data from Adobe Analytics API 1.4
+# Real-Time Data from Adobe Analytics API 1.4
 
-Demonstrating how to write an action accessing Adobe Analytics Real-time API 1.4
+Demonstrates how to write an action accessing Adobe Analytics Real-time API 1.4
 
 ```javascript
 /**
@@ -95,5 +95,3 @@ async function main (params) {
 
 exports.main = main
 ```
-
-

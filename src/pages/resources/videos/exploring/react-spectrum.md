@@ -10,7 +10,7 @@ keywords:
 
 # Exploring App Builder - React Spectrum
 
-We are joined by Rob Snow from the React Spectrum team to learn about React Spectrum, how to get started using it and how to get involved in their open source project. After Rob's presentation, stick around as we answer questions from our community.
+We are joined by Rob Snow from the React Spectrum team discuss React Spectrum, how to get started using it, and how to get involved in their open source project. 
 
 <Media slots="video"/>
 

@@ -14,31 +14,30 @@ contributors:
 
 # Events Using Runtime Actions as Webhook
 
-The codelab will guide you through how to consume events using runtime action as webhook. 
+The Code Lab will show how to consume events using runtime actions as webhook. 
 
 ## Background
 
-In previous codelab [Consume Events using Journaling API](../journaling-events/index.md) we guide you through how to consume event using Journaling API. In this codelab, we will introduce another way to consume events - runtime action as webhook. This integration between Adobe I/O Runtime and I/O Events allow you create runtime actions to be setup as webhook endpoints on the Adobe developer console for receiving events, so that every time an event fires, your runtime action is executed and the debug tracing feature allow you to debug easily.  
+In the Code Lab [Consume Events using Journaling API](../journaling-events/index.md) we showed how to consume events using Journaling API. This one will introduce another way to consume events - runtime action as webhook. The integration between Adobe I/O Runtime and I/O Events allows you create runtime actions set up as webhook endpoints on the Adobe Developer console for receiving events. Every time an event fires, your runtime action is executed and the debug tracing feature allows you to debug easily.  
 
-## Benefits of using Runtime Action as Webhook
+## Benefits of using Runtime Actions as webhook
 
-There are two main benefits to choose runtime action as webhook: 
+Two main benefits to choose Runtime actions as webhook are: 
+
 - [Built in Signature Verification](https://developer.adobe.com/events/docs/guides/sdk/sdk_signature_verification/)
-- Tracing actions with Activation Ids 
+- Tracing actions with Activation IDs 
 
 ## How to choose between Journaling API and Runtime Action webhook
-- Journaling API: when you have a long running(async) actions that require guaranteed event handling especially when there is a surge of events, you should consider using the [journaling approach](../journaling-events/index.md) to consume events. 
-- Runtime action webhook: if you have short-running (sync) action for example, responds within 10 sec, we recommend setting up your runtime action as webhook
+
+- The [journaling approach](../journaling-events/index.md) is recommended when you have long-running (asynchronous) actions that require guaranteed event handling, especially when there is a surge of events 
+- Runtime action webhook is recommended for short-running (synchronous) actions, for example those that respond within 10 sec
 
 ## Overview
-This codelab will take you through the I/O events SYNC webhook registration using your own runtime actions via console.
-As part of this codelab, we will cover all the behind the scene actions happening for the below 
 
-- Using App Builder template `publish-event`to set up custom event as event provider
+This Code Lab will take you through the I/O events SYNC webhook registration using your own runtime actions through the console.
+As part of this Code Lab, we will cover all the behind-the-scenes actions that occur while: 
+
+- Using the App Builder template `publish-event`to set up a custom event as event provider
 - Setting up event registration 
-- Ingesting subscribed events for that webhook in I/O Events pipeline
-- Debug tracing on console for the Success and Failure scenarios
-
-
-
-
+- Ingesting subscribed events for that webhook in the I/O Events pipeline
+- Debug tracing on the console for the Success and Failure scenarios

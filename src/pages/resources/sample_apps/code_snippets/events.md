@@ -7,9 +7,9 @@ keywords:
 title: App Builder Code Snippets - I/O Events handler  
 ---
 
-# I/O Events handler
+# I/O Events Handler
 
-Demonstrating how to write an event handler for webhook calls. This action is expose as a web action, you can use its URL to register as a webhook for I/O Events.
+Demonstrates how to write an event handler for webhook calls. This action is exposed as a web action, so you can use its URL to register as a webhook for I/O Events.
 
 ```javascript
 /**
@@ -53,16 +53,16 @@ async function main (params) {
 
     // NOTE: please customize the following lines based on the event object data type you receive from I/O Events
     const eventDetail = params.event['activitystreams:object']
-     
+
     const slackMessage = params.event['@type'] + " Event for: " + eventDetail['xdmAsset:asset_name'] + " at " + eventDetail['xdmAsset:path']
-      
+
     const payload = {
       channel: slackChannel,
       username: 'incoming-webhook',
       text: slackMessage,
       mrkdwn: true
     }
-      
+
     var slackOpts = {
       method: 'POST',
       headers: {
@@ -92,9 +92,3 @@ async function main (params) {
 
 exports.main = main
 ```
-
-
-
-
-
-

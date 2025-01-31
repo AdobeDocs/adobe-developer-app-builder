@@ -17,9 +17,11 @@ Asset binaries are no longer processed by the AEM instance. AEM only coordinates
 
 The red box called **Asset microservices** at the right on the diagram lists the services that are driven by Adobe Asset Compute, which is built on top of Adobe IO Runtime. The aim of this service is to:
 
-- Perform any kind of asset binary transformation: resizing, cropping, intelligent cropping, color manipulation, etc.
-- Transform images using Adobe's internal services for image manipulation or third-party services in case of custom implementation
-- Store the result of the processing back to AEM as an asset rendition
+- Perform any kind of asset binary transformation, such as: resizing, cropping, intelligent cropping, colors
+  manipulation or anything else you can imagine
+- An image transformation is driven by the Adobe's internal services for image manipulation or by third-party services in
+  case of custom implementation.
+- Store the result of the processing back to AEM as an asset rendition.
 
 The high-level architecture of the Asset Compute service is shown here:
 

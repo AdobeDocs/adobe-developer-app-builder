@@ -10,7 +10,7 @@ keywords:
 
 # Exploring App Builder - Deep Dive on Use Cases
 
-Manik & Ron take a look at a number of great use cases. Join us as we share some popular ways to use App Builder.
+Manik and Ron take a look at a number of great use cases, and share some popular ways to use App Builder.
 
 <Media slots="video"/>
 

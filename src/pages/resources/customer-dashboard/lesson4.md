@@ -11,13 +11,13 @@ title: 'Lesson 4: List All Customer Profiles on the UI'
 
 # Lesson 4: List All Customer Profiles on the UI
 
-The app UI is powered by [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html) by default. To learn more about React Spectrum, please review the [React Spectrum Codelab](../todo-app/index.md).  
+The app UI is powered by [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html) by default. To learn more about React Spectrum, please consult the [React Spectrum Code Lab](../todo-app/index.md).  
 
-In the [previous lesson](lesson3.md), customer profiles were loaded to the frontend only when you clicked the "Invoke" button. Now we want the profiles automatically loaded on the Home page when the page is ready, without any human interaction. 
+In the [previous lesson](lesson3.md), customer profiles were loaded to the front end only when you click the "Invoke" button. Now we want the profiles loaded automatically on the Home page when the page is ready, with no human interaction. 
 
-We will use the `componentWillMount` method to initiate loading profiles and store the loaded data in `profiles` parameter of the component's state. We use `<Flex>` and `<Grid>` from React Spectrum to lay out Spectrum components on the page. Each entry of the customer profiles returned by the `get-profiles` action is displayed with first name, last name, and email of the customer. You can also apply some CSS styling in the `index.css` file to make it look nice. 
+We will use the `componentWillMount` method to initiate loading profiles, and store the loaded data in `profiles` parameter of the component's state. We use `<Flex>` and `<Grid>` from React Spectrum to lay out spectrum components on the page. Each entry of the customer profiles returned by the `get-profiles` action is displayed with first name, last name, and email of the customer. You may also apply CSS styling in the `index.css` file to improve its appearance. 
 
-Here is the complete code of `Home.js`:
+Below is the complete code of `Home.js`:
 
 ```javascript
 import React from 'react'
@@ -39,10 +39,10 @@ class Home extends React.Component {
 
   async componentWillMount () {
     this.setState({ actionInvokeInProgress: true })
-    
+
     const headers = {}
     const params = {}
-  
+
     // set the authorization header and org from the ims props object
     if (this.props.ims.token && !headers.authorization) {
       headers.authorization = 'Bearer ' + this.props.ims.token
@@ -96,15 +96,14 @@ Home.propTypes = {
 export default Home
 ```
 
-Note: For simplicity of the lab, we only display the first page of the result. In a real environment with hundreds of profiles, results are returned in batches, and you would need to handle pagination.
+> Note: For simplicity, we are displaying only the first page of the result. In a real environment with hundreds of profiles, results are returned in batches, so you will need to handle pagination of data accordingly.
 
-The `Home` component above requires the `ims` object in its `propTypes` to get the IMS context for calling the back-end actions, including access token and org ID. This object is passed from the `App` component, so it has to be updated accordingly in the `App.js` file.
+The `Home` component above requires the `ims` object in its `propTypes` to get the IMS context for calling the back-end actions, including the access token and org ID. This object is passed from the `App` component, so it has to be updated accordingly in the `App.js` file.
 
 ```javascript
 <Home ims={props.ims} />
 ```
 
-Since your app is already running because you ran `aio app run` in the previous lesson, just refresh the webpage at https://experience.adobe.com/?devMode=true#/apps/?localDevUrl=https://localhost:9080 to see the updated UI:
+Since your app is already running because you ran `aio app run` in the previous lesson, you can see the updated UI by refreshing the webpage at https://experience.adobe.com/?devMode=true#/apps/?localDevUrl=https://localhost:9080.
 
 ![ui-profiles](assets/ui-profiles.png)
-

@@ -9,32 +9,33 @@ title: 'Lesson 1: Bootstrap a Headless App Builder App'
 
 # Lesson 1: Bootstrap a Headless App Builder App
 
-To create a barcode application, use the following command:
+In order to create your barcode application, use the following command:
+
 ```bash
 aio app init my-barcode-app --no-extensions
 ```
 
-Select the org, project and workspace for your app, and specify the options you want your app to include: Serverless Actions, Web UI, CI/CD pipeline, and I/O Events. Since we are building a headless app, we're only interested in using `Actions: Deploy Runtime actions`.
+We select the org, project and workspace for our app, and then be presented with a few options what you want your app to include, for example Serverless Actions, Web UI, CI/CD pipeline, and I/O Events. Since we are building a headless app, we're only interested in using `Actions: Deploy Runtime actions`.
 
 ![cli1](assets/cli1.png)
 
-The CLI then asks  which Experience Cloud or Experience Platform apps you want to extend or build. In this case, we're going to choose `Generic`.
+The second question the CLI asks is which experience cloud or experience platform apps you want to extend or build. In this case, we're going to choose `Generic`.
 
 ![cli2](assets/cli2.png)
 
-To the third question we'll specify the action name `barcode`.
+To the third question, we'll specify the action name `barcode`.
 
 ![cli3](assets/cli3.png)
 
-From the command line, a Developer project is now created that includes serverless actions, configuration files, tests etc.
+From the command line, we are creating a Developer project with everything it needs, from the serverless actions, configuration files, tests, etc.
 
 ![cli3](assets/cli4.png)
 
-We didn't include a UI setup, CI/CD pipeline, or I/O Events. These  will be covered in other Code Labs.
+We didn't include the UI setup, CI/CD pipeline, nor I/O Events. These topics will be covered in other Code Labs.
 
-For the barcode app, we'll start by modifying these files:
+For our barcode app, we'll start by modifying the following files:
 
-**app.config.yaml** contains all defined actions with their default parameters:
+**app.config.yaml**, which contains all defined actions with their default parameters:
 
 ```yaml
 application:
@@ -54,10 +55,9 @@ application:
             annotations:
               require-adobe-auth: true
               final: true
-
 ```
 
-**package.json** holds your app name, version and all dependencies that will be bundled when deploying the barcode action:
+**package.json**, which holds your app name, version and all dependencies that will be bundled when deploying the barcode action:
 
 ```json
 {
