@@ -2,7 +2,7 @@
     - /app-builder/docs/
 
 - pages:
-    - [App Builder](/app-builder)
+    - [App Builder](https://developer.adobe.com/app-builder/)
     - [Overview](overview/index.md)
     - [Getting Started](getting-started/index.md)
     - [Guides](guides/index.md)
